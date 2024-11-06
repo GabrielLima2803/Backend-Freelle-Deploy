@@ -1,23 +1,17 @@
-"""
-Database models.
-"""
-
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
     PermissionsMixin,
 )
 from django.db import models
-
 from datetime import datetime
-
 from uploader.models import Image
 from .comentario import Comentario
 from .favorito import Favorito
 from .nacionalidade import Nacionalidade
+import uuid
 
 def generate_unique_passage_id():
-    import uuid
     return str(uuid.uuid4())
 
 class UserManager(BaseUserManager):
@@ -52,7 +46,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     """User model in the system."""
     username = models.CharField(max_length=255, unique=True, null=True, blank=True)
     biografia = models.TextField(null=True, blank=True)
-    created_at = models.DateField(default=datetime.now)
+    created_at = models.DateTimeField(auto_now_add=True) 
     nacionalidade = models.ForeignKey(Nacionalidade, related_name="users", on_delete=models.PROTECT, null=True, blank=True)
     linguagem_principal = models.CharField(max_length=255, null=True, blank=True)
     especializacao = models.CharField(max_length=255, null=True, blank=True)

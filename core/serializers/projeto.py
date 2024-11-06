@@ -19,6 +19,16 @@ class ProjetoSerializer(ModelSerializer):
         required=False,
         read_only=True
     )
+    preco = serializers.DecimalField(
+        max_digits=10, decimal_places=2, default=0, required=False, allow_null=True
+    )
+
+    def to_representation(self, instance):
+        representation = super().to_representation(instance)
+
+        representation['preco'] = representation['preco'] if representation['preco'] is not None else "A Combinar"
+
+        return representation
     class Meta:
         model = Projeto
         fields = "__all__"
@@ -32,4 +42,5 @@ class ProjetoDetailSerializer(ModelSerializer):
 class ProjetoListSerializer(ModelSerializer):
     class Meta:
         model = Projeto
-        fields = ['id', 'nome', 'descricao', 'status', 'categoria']
+        fields = ['id', 'titulo', 'descricao', 'status', 'categoria']
+        depth = 1
