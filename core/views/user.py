@@ -14,10 +14,10 @@ class UserViewSet(ModelViewSet):
 
     @action(detail=False, methods=["get"], permission_classes=[IsAuthenticated])
     def me(self, request):
-        """Return the current authenticated user"""
-        user = request.user
-        serializer = UserSerializer(user)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+            """Return the current authenticated user"""
+            user = request.user
+            serializer = UserSerializer(user)
+            return Response(serializer.data, status=status.HTTP_200_OK)
     
     def get_serializer_class(self):
         if self.action == 'list':

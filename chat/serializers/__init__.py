@@ -1,1 +1,1 @@
-from .conversa import ConversaSerializer
+# from .conversa import ConversaSerializer

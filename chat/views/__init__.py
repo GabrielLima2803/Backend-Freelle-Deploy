@@ -1,2 +1,2 @@
 from .sendMessage import SendMessageView
-from .conversa import IniciarConversaView
+# from .conversa import IniciarConversaView
