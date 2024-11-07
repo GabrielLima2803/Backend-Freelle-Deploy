@@ -55,7 +55,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     linguagem_principal = models.CharField(max_length=255, null=True, blank=True)
     especializacao = models.CharField(max_length=255, null=True, blank=True)
     
-    foto = models.ForeignKey(Image, related_name="+", on_delete=models.SET_NULL, null=True, blank=True)
+    foto = models.ImageField(upload_to='profile_pics/', null=True, blank=True)
+
     foto_str = models.CharField(max_length=1024, null=True, blank=True)  
 
     

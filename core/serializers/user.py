@@ -43,11 +43,19 @@ class UserListSerializer(ModelSerializer):
         ]
 
 class UserUpdateSerializer(serializers.ModelSerializer):
+    foto = serializers.ImageField(required=False)  
+
     class Meta:
         model = User
-        fields = ["name", "email", "nacionalidade", "foto", "especializacao", "instagram", "linkedin", "username", "formacao"]  
+        fields = ["name", "email", "nacionalidade", "foto", "especializacao", "instagram", "linkedin", "username", "formacao"]
         extra_kwargs = {
             "name": {"required": False},
             "email": {"required": False},
-            "nacionalidade": {"required": False}
+            "nacionalidade": {"required": False},
         }
+
+    def update(self, instance, validated_data):
+        foto = validated_data.get('foto', None)
+        if foto:
+            instance.foto = foto
+        return super().update(instance, validated_data)

@@ -18,15 +18,17 @@ class UserViewSet(ModelViewSet):
         serializer = UserSerializer(user)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
-    @action(detail=False, methods=["patch"], permission_classes=[IsAuthenticated])
+    @action(detail=False, methods=['patch'])
     def update_me(self, request):
-        """Permite que o usuário autenticado atualize suas informações"""
-        user = request.user
-        serializer = UserUpdateSerializer(user, data=request.data, partial=True) 
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            user = request.user
+            serializer = self.get_serializer(user, data=request.data, partial=True)
+
+            if serializer.is_valid():
+                if 'foto' in request.data:
+                    user.foto = request.data['foto']
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=400)
     def get_serializer_class(self):
         if self.action == 'list':
             return UserListSerializer
