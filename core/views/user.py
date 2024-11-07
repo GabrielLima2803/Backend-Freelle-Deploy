@@ -4,9 +4,13 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
-from core.models import User
-from core.serializers import UserSerializer, UserListSerializer, UserDetailSerializer
-
+from core.models import User, Avaliacao
+from core.serializers import (
+    UserSerializer, 
+    UserListSerializer, 
+    UserDetailSerializer,
+    AvaliacaoSerializer
+)
 
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all().order_by("id")
