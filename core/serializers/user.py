@@ -41,3 +41,13 @@ class UserListSerializer(ModelSerializer):
             'id', 'name', 'email', 'username', 'isPro', 
             'especializacao', 'instagram', 'linkedin', 'rating'
         ]
+
+class UserUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["name", "email", "nacionalidade", "foto", "especializacao", "instagram", "linkedin", "username", "formacao"]  
+        extra_kwargs = {
+            "name": {"required": False},
+            "email": {"required": False},
+            "nacionalidade": {"required": False}
+        }

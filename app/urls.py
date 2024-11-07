@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
-
+from django.conf import settings
+from django.conf.urls.static import static
 from drf_spectacular.views import (
     SpectacularAPIView,
     SpectacularRedocView,
@@ -10,6 +11,7 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from core.views import UserViewSet, CategoriaViewSet, FavoritoViewSet, ProjetoViewSet, UserProjetoViewSet, NacionalidadeViewSet, FormacaoViewSet
+from uploader.router import router as uploader_router
 
 from chat.views import SendMessageView
 
@@ -46,7 +48,10 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path("api/register/", RegisterUser, name="register"),
     path("api/login/", LoginUser, name="login"),
+    path("api/media/", include(uploader_router.urls)),  
     path("api/forgot-password/", ForgotPasswordUser, name="forgot-password"),
     path("api/reset-password/", ResetPasswordUser, name="reset-password"),
     path('api/send-message/', SendMessageView.as_view(), name='send-message'),
 ]
+
+urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)

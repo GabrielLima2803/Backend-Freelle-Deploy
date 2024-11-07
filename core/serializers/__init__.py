@@ -1,4 +1,4 @@
-from .user import UserSerializer, UserDetailSerializer, UserListSerializer
+from .user import UserSerializer, UserDetailSerializer, UserListSerializer, UserUpdateSerializer
 from .categoria import CategoriaSerializer
 from .favorito import FavoritoSerializer
 from .projeto import ProjetoSerializer, ProjetoDetailSerializer, ProjetoListSerializer

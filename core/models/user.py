@@ -56,6 +56,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     especializacao = models.CharField(max_length=255, null=True, blank=True)
     
     foto = models.ForeignKey(Image, related_name="+", on_delete=models.SET_NULL, null=True, blank=True)
+    foto_str = models.CharField(max_length=1024, null=True, blank=True)  
+
     
     instagram = models.CharField(max_length=255, unique=True, null=True, blank=True)
     linkedin = models.CharField(max_length=255, unique=True, null=True, blank=True)
