@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "core",
+    "chat",
+    "uploader",
 ]
 
 MIDDLEWARE = [
@@ -108,6 +110,13 @@ TIME_ZONE = "America/Sao_Paulo"
 USE_I18N = True
 USE_TZ = True
 
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = "gabriellima2803@gmail.com"
+EMAIL_HOST_PASSWORD = "vvzz awdb gcjn ixyu"
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = "static/"
@@ -119,7 +128,7 @@ FILE_UPLOAD_PERMISSIONS = 0o640
 
 if MODE == "DEVELOPMENT":
     MY_IP = os.getenv("MY_IP", "127.0.0.1")
-    MEDIA_URL = f"http://{MY_IP}:19003/media/"
+    MEDIA_URL = f"http://127.0.0.1:8000/media/"
 else:
     CLOUDINARY_URL = os.getenv("CLOUDINARY_URL")
     DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
@@ -150,7 +159,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "PAGE_SIZE": 10,
-    # "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTAuthentication",),
+    "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTAuthentication",),
 }
 
 PASSAGE_APP_ID = os.getenv("PASSAGE_APP_ID", "app_id")
@@ -158,3 +167,8 @@ PASSAGE_API_KEY = os.getenv("PASSAGE_API_KEY", "api_key")
 PASSAGE_AUTH_STRATEGY = 2
 
 print(f"{MODE = } \n{MEDIA_URL = } \n{DATABASES = }")
+
+REDIS_HOST = os.getenv('REDIS_HOST', 'localhost')
+REDIS_PORT = int(os.getenv('REDIS_PORT', 6379))
+REDIS_DB = int(os.getenv('REDIS_DB', 0))
+REDIS_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_DB}'
