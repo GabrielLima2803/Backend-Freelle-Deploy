@@ -1,6 +1,6 @@
 from rest_framework import status
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
@@ -29,9 +29,26 @@ class UserViewSet(ModelViewSet):
                 serializer.save()
                 return Response(serializer.data)
             return Response(serializer.errors, status=400)
+    
+    @action(detail=False, methods=["get"], permission_classes=[AllowAny])
+    def empresas(self, request):
+        """Retorna todos os usuários que são empresas"""
+        empresas = User.objects.filter(is_empresa=True)
+        serializer = UserListSerializer(empresas, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(detail=False, methods=["get"], permission_classes=[AllowAny])
+    def freelancers(self, request):
+        """Retorna todos os usuários que são freelancers"""
+        freelancers = User.objects.filter(is_empresa=False)
+        serializer = UserListSerializer(freelancers, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
     def get_serializer_class(self):
         if self.action == 'list':
             return UserListSerializer
         elif self.action == 'retrieve':
             return UserDetailSerializer
         return UserSerializer
+
