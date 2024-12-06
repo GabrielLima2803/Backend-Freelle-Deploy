@@ -26,8 +26,10 @@ class UserProjetoDetailSerializer(ModelSerializer):
 class ListUserProjetoSerializer(ModelSerializer):
     fk_client_user = UserSerializer()
     fk_freelancer_user = UserSerializer()
+    projeto_status = serializers.CharField(source='projeto.status', read_only=True)
     projeto = ProjetoSerializer()
+
     class Meta:
         model = UserProjeto
-        fields = ['id', 'fk_client_user', 'fk_freelancer_user', 'projeto', 'projeto.status']
+        fields = ['id', 'fk_client_user', 'fk_freelancer_user', 'projeto', 'projeto_status']
 

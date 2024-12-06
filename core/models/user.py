@@ -70,6 +70,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     nacionalidade = models.ForeignKey(Nacionalidade, related_name="users", on_delete=models.PROTECT, null=True, blank=True)
     formacao = models.ForeignKey(Formacao, related_name="users", on_delete=models.PROTECT, null=True, blank=True)
     favorito = models.ForeignKey(Favorito, related_name="users", on_delete=models.PROTECT, null=True, blank=True)
+    cnpj = models.CharField(max_length=18, unique=True, null=True, blank=True)  
+    descricao = models.TextField(null=True, blank=True)  
+    is_empresa = models.BooleanField(default=False) 
 
     objects = UserManager()
 

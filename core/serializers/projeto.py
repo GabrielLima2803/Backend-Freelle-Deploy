@@ -2,6 +2,7 @@ from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, SlugRelatedField
 
 from core.models import Projeto
+# from core.serializers import ProjetoSerializer
 
 from uploader.models import Image
 from uploader.serializers import ImageSerializer
@@ -22,6 +23,7 @@ class ProjetoSerializer(ModelSerializer):
     preco = serializers.DecimalField(
         max_digits=10, decimal_places=2, default=0, required=False, allow_null=True
     )
+    # candidatos = ProjetoSerializer(many=True, read_only=True)
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)

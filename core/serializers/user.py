@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from rest_framework.serializers import ModelSerializer, SlugRelatedField
+from rest_framework.serializers import ModelSerializer, SlugRelatedField, SerializerMethodField
 from core.models import User
 from uploader.models import Image
 from uploader.serializers import ImageSerializer
@@ -25,8 +25,10 @@ class UserSerializer(ModelSerializer):
         fields = "__all__"
 
 
+
 class UserDetailSerializer(ModelSerializer):
     avaliacoes_recebidas = AvaliacaoSerializer(many=True, read_only=True)
+
 
     class Meta:
         model = User
@@ -35,12 +37,15 @@ class UserDetailSerializer(ModelSerializer):
 
 
 class UserListSerializer(ModelSerializer):
+    groups = SerializerMethodField()
     class Meta:
         model = User
         fields = [
             'id', 'name', 'email', 'username', 'isPro', 
-            'especializacao', 'instagram', 'linkedin', 'rating'
+            'especializacao', 'instagram', 'linkedin', 'rating', "is_empresa", "groups"
         ]
+    def get_groups(self, obj):
+        return [{"id": group.id, "name": group.name} for group in obj.groups.all()]
 
 class UserUpdateSerializer(serializers.ModelSerializer):
     foto = serializers.ImageField(required=False)  
