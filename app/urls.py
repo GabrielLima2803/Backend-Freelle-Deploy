@@ -15,7 +15,7 @@ from uploader.router import router as uploader_router
 
 from chat.views import SendMessageView
 
-from core.auth import LoginUser, RegisterUser, ForgotPasswordUser, ResetPasswordUser
+from core.auth import LoginUser, RegisterUser, ForgotPasswordUser, ResetPasswordUser, RegisterEmpresa
 
 router = DefaultRouter()
 
@@ -47,6 +47,7 @@ urlpatterns = [
     # API
     path("api/", include(router.urls)),
     path("api/register/", RegisterUser, name="register"),
+    path("api/register-empresa/", RegisterEmpresa, name="register-empresa"),
     path("api/login/", LoginUser, name="login"),
     path("api/media/", include(uploader_router.urls)),  
     path("api/forgot-password/", ForgotPasswordUser, name="forgot-password"),
