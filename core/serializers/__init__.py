@@ -2,7 +2,7 @@ from .user import UserSerializer, UserDetailSerializer, UserListSerializer, User
 from .categoria import CategoriaSerializer
 from .favorito import FavoritoSerializer
 from .projeto import ProjetoSerializer, ProjetoDetailSerializer, ProjetoListSerializer
-from .projetoUser import UserProjetoSerializer, ListUserProjetoSerializer, UserProjetoDetailSerializer
+from .projetoUser import UserProjetoSerializer
 from .nacionalidade import NacionalidadeSerializer
 from .formacao import FormacaoSerializer
 from .avalicao import AvaliacaoSerializer

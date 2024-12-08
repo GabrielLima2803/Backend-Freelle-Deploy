@@ -72,6 +72,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     favorito = models.ForeignKey(Favorito, related_name="users", on_delete=models.PROTECT, null=True, blank=True)
     cnpj = models.CharField(max_length=18, unique=True, null=True, blank=True)  
     descricao = models.TextField(null=True, blank=True)  
+    telefone = models.PositiveIntegerField()
     is_empresa = models.BooleanField(default=False) 
 
     objects = UserManager()

@@ -27,12 +27,10 @@ class UserSerializer(ModelSerializer):
 
 
 class UserDetailSerializer(ModelSerializer):
-    avaliacoes_recebidas = AvaliacaoSerializer(many=True, read_only=True)
-
-
+    # avaliacoes_recebidas = AvaliacaoSerializer(many=True, read_only=True)
     class Meta:
         model = User
-        fields = "__all__"
+        fields = ["id", "username", "email", "is_empresa"]
         depth = 1
 
 
@@ -49,7 +47,6 @@ class UserListSerializer(ModelSerializer):
 
 class UserUpdateSerializer(serializers.ModelSerializer):
     foto = serializers.ImageField(required=False)  
-
     class Meta:
         model = User
         fields = ["name", "email", "nacionalidade", "foto", "especializacao", "instagram", "linkedin", "username", "formacao"]

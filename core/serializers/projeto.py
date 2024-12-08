@@ -1,11 +1,9 @@
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, SlugRelatedField
-
 from core.models import Projeto
-# from core.serializers import ProjetoSerializer
-
 from uploader.models import Image
 from uploader.serializers import ImageSerializer
+from core.serializers.projetoUser import UserProjetoSerializer
 
 
 class ProjetoSerializer(ModelSerializer):
@@ -23,24 +21,43 @@ class ProjetoSerializer(ModelSerializer):
     preco = serializers.DecimalField(
         max_digits=10, decimal_places=2, default=0, required=False, allow_null=True
     )
-    # candidatos = ProjetoSerializer(many=True, read_only=True)
+    remaining_spots = serializers.SerializerMethodField()
+    candidatos = UserProjetoSerializer(many=True, read_only=True)
+
+    def get_remaining_spots(self, instance):
+        """
+        Calcula o número de vagas restantes ou exibe mensagens caso a vaga esteja
+        fechada ou já tenha sido selecionada.
+        """
+        if instance.isClosed:
+            return "Vagas acabaram"
+        
+        if instance.candidatos.filter(is_selected=True).exists():
+            return "Vaga já foi selecionada"
+        
+        return max(0, instance.max_candidates - instance.candidatos.count())
 
     def to_representation(self, instance):
+        """
+        Ajusta a representação do campo 'preco', garantindo que se o valor for None,
+        ele será substituído por 'A Combinar'.
+        """
         representation = super().to_representation(instance)
-
         representation['preco'] = representation['preco'] if representation['preco'] is not None else "A Combinar"
-
         return representation
+
     class Meta:
         model = Projeto
         fields = "__all__"
-        depth = 1
+        depth = 1  
+
 
 class ProjetoDetailSerializer(ModelSerializer):
     class Meta:
         model = Projeto
         fields = "__all__"
         depth = 1
+
 
 class ProjetoListSerializer(ModelSerializer):
     class Meta:
