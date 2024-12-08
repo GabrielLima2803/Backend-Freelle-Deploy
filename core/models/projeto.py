@@ -3,6 +3,7 @@ from datetime import datetime
 from uploader.models import Image
 from .categoria import Categoria
 from django.utils import timezone
+from .user import User
 
 class Projeto(models.Model):
     class StatusChoices(models.IntegerChoices):
@@ -23,7 +24,13 @@ class Projeto(models.Model):
     isExpired = models.BooleanField(default=False)
     isClosed = models.BooleanField(default=False) 
     max_candidates = models.PositiveIntegerField(default=1)
-
+    selected_user = models.ForeignKey(
+        User,
+        related_name="selected_jobs",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
+    )
     
 
     class Meta:
