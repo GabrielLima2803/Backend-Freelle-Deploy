@@ -14,7 +14,6 @@ class UserSerializer(ModelSerializer):
         write_only=True,
     )
     foto = ImageSerializer(required=False, read_only=True)
-
     rating = serializers.FloatField(read_only=True)
     total_avaliacoes = serializers.IntegerField(read_only=True)
 

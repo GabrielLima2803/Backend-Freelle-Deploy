@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework import filters, status
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
@@ -92,3 +92,22 @@ class ProjetoViewSet(ModelViewSet):
             {"message": "Candidato selecionado com sucesso e outros candidatos removidos."},
             status=status.HTTP_200_OK
         )
+
+    @action(detail=False, methods=['get'], url_path='current-projetos', url_name='current_projetos', permission_classes=[IsAuthenticated])
+    def current_projetos(self, request):
+        """
+        Retorna uma lista com os projetos em andamento do usuário logado.
+        """
+        user = request.user
+
+        if UserProjeto.objects.filter(empresa_user=user).exists():
+            projetos_ids = UserProjeto.objects.filter(empresa_user=user).values_list('projeto_id', flat=True)
+        elif UserProjeto.objects.filter(freelancer_user=user).exists():
+            projetos_ids = UserProjeto.objects.filter(freelancer_user=user).values_list('projeto_id', flat=True)
+        else:
+             return Response({"detail": "Nenhum projeto encontrado para o usuário autenticado."}, status=404)
+
+        queryset = Projeto.objects.filter(id__in=projetos_ids)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)

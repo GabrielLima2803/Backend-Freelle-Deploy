@@ -6,7 +6,7 @@ from core.models import UserProjeto
 class UserProjetoSerializer(ModelSerializer):
     # user = serializers.SerializerMethodField()
     status = serializers.CharField(source="get_status_display")
-
+    freelancer_user = UserDetailSerializer(read_only=True)
     class Meta:
         model = UserProjeto
         fields = ["id", "freelancer_user", "application_date", "status"]

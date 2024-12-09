@@ -4,7 +4,7 @@ from uploader.models import Image
 from .categoria import Categoria
 from django.utils import timezone
 from .user import User
-
+        
 class Projeto(models.Model):
     class StatusChoices(models.IntegerChoices):
         CLOSE = 1, 'Fechado'
