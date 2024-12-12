@@ -21,8 +21,8 @@ class ProjetoSerializer(ModelSerializer):
     preco = serializers.DecimalField(
         max_digits=10, decimal_places=2, default=0, required=False, allow_null=True
     )
+    candidatos = UserProjetoSerializer(many=True, read_only=True)  # Se você tiver um campo 'candidatos' no modelo
     remaining_spots = serializers.SerializerMethodField()
-    candidatos = UserProjetoSerializer(many=True, read_only=True)
 
     def get_remaining_spots(self, instance):
         """
@@ -32,10 +32,13 @@ class ProjetoSerializer(ModelSerializer):
         if instance.isClosed:
             return "Vagas acabaram"
         
-        if instance.candidatos.filter(is_selected=True).exists():
+        # Usar uma consulta eficiente para contar candidatos
+        candidatos_count = instance.candidatos.filter(is_selected=True).count()
+        
+        if candidatos_count >= instance.max_candidates:
             return "Vaga já foi selecionada"
         
-        return max(0, instance.max_candidates - instance.candidatos.count())
+        return max(0, instance.max_candidates - candidatos_count)
 
     def to_representation(self, instance):
         """
@@ -49,7 +52,7 @@ class ProjetoSerializer(ModelSerializer):
     class Meta:
         model = Projeto
         fields = "__all__"
-        depth = 1  
+        depth = 1
 
 
 class ProjetoDetailSerializer(ModelSerializer):

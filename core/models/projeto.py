@@ -51,6 +51,6 @@ class Projeto(models.Model):
             self.save()
 
     def check_max_candidates(self):
-        if self.applications.count() >= self.max_candidates:
+        if self.candidatos.count() >= self.max_candidates:
             self.isClosed = True
             self.save()
