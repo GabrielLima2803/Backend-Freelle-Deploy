@@ -14,7 +14,7 @@ class UserProjeto(models.Model):
     application_date = models.DateTimeField(default=timezone.now)
     is_selected = models.BooleanField(default=False)
     status = models.IntegerField(choices=StatusJob.choices, default=StatusJob.PENDENTE)
-    projeto = models.ForeignKey(Projeto, related_name="user_projects", on_delete=models.PROTECT)
+    projeto = models.ForeignKey(Projeto, related_name="candidatos", on_delete=models.PROTECT)
 
     class Meta:
         verbose_name = "User Projeto"

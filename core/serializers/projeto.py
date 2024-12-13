@@ -21,24 +21,17 @@ class ProjetoSerializer(ModelSerializer):
     preco = serializers.DecimalField(
         max_digits=10, decimal_places=2, default=0, required=False, allow_null=True
     )
-    candidatos = UserProjetoSerializer(many=True, read_only=True)  # Se você tiver um campo 'candidatos' no modelo
+    candidatos = UserProjetoSerializer(many=True, read_only=True)  
     remaining_spots = serializers.SerializerMethodField()
 
     def get_remaining_spots(self, instance):
-        """
-        Calcula o número de vagas restantes ou exibe mensagens caso a vaga esteja
-        fechada ou já tenha sido selecionada.
-        """
         if instance.isClosed:
             return "Vagas acabaram"
         
-        # Usar uma consulta eficiente para contar candidatos
-        candidatos_count = instance.candidatos.filter(is_selected=True).count()
-        
-        if candidatos_count >= instance.max_candidates:
+        if instance.candidatos.filter(is_selected=True).exists():
             return "Vaga já foi selecionada"
         
-        return max(0, instance.max_candidates - candidatos_count)
+        return max(0, instance.max_candidates - instance.candidatos.count())
 
     def to_representation(self, instance):
         """
