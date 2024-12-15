@@ -70,7 +70,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     # expert
     total_pedidos = models.FloatField(default=0)
-    
+    area_atuacao =  models.CharField(max_length=255, null=True, blank=True)
     is_staff = models.BooleanField(default=False)
     reset_code = models.CharField(max_length=6, null=True, blank=True)
     rating = models.FloatField(default=0.0, verbose_name="Média de Avaliações")
