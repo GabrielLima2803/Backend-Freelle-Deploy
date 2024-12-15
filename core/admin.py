@@ -1,7 +1,3 @@
-"""
-Django admin customization.
-"""
-
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
@@ -14,9 +10,11 @@ class UserAdmin(BaseUserAdmin):
 
     ordering = ["id"]
     list_display = ('username', 'email', 'name', 'passage_id', 'is_active', 'is_staff')
+    
+    # Use __all__ to include all fields of the User model
     fieldsets = (
         (None, {"fields": ("email", "password")}),
-        (_("Personal Info"), {"fields": ("name", "passage_id", "foto")}), 
+        (_("Personal Info"), {"fields": ("username", "name", "foto", "passage_id")}),
         (
             _("Permissions"),
             {
@@ -30,7 +28,9 @@ class UserAdmin(BaseUserAdmin):
         (_("Important dates"), {"fields": ("last_login",)}),
         (_("Groups"), {"fields": ("groups",)}),
     )
+
     readonly_fields = ["last_login"]
+    
     add_fieldsets = (
         (
             None,
@@ -40,6 +40,7 @@ class UserAdmin(BaseUserAdmin):
                     "email",
                     "password1",
                     "password2",
+                    "username",
                     "name",
                     "is_active",
                     "is_staff",

@@ -10,6 +10,7 @@ from .favorito import Favorito
 from .formacao import Formacao
 from .nacionalidade import Nacionalidade
 import uuid
+from django.core.validators import RegexValidator
 
 
 def generate_unique_passage_id():
@@ -53,7 +54,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     created_at = models.DateTimeField(auto_now_add=True)
     linguagem_principal = models.CharField(max_length=255, null=True, blank=True)
     especializacao = models.CharField(max_length=255, null=True, blank=True)
-    # foto = models.ImageField(upload_to='profile_pics/', null=True, blank=True) Resolver erro
+    foto = models.ForeignKey(
+        Image,
+        related_name="+",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        default=None,
+    )    
     instagram = models.CharField(max_length=255, unique=True, null=True, blank=True)
     linkedin = models.CharField(max_length=255, unique=True, null=True, blank=True)
     isPro = models.BooleanField(default=False)
@@ -72,7 +80,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     favorito = models.ForeignKey(Favorito, related_name="users", on_delete=models.PROTECT, null=True, blank=True)
     cnpj = models.CharField(max_length=18, unique=True, null=True, blank=True)  
     descricao = models.TextField(null=True, blank=True)  
-    telefone = models.PositiveIntegerField(blank=True, null=True)
+    telefone = models.CharField(
+        max_length=20,  
+        blank=True,
+        null=True,
+        validators=[RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Número de telefone inválido.")]
+    )   
     is_empresa = models.BooleanField(default=False) 
     
     objects = UserManager()
