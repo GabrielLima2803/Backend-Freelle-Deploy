@@ -38,7 +38,7 @@ class Projeto(models.Model):
         verbose_name_plural = "Projetos"
 
     def __str__(self):
-        return f"Projeto - {self.titulo}"
+        return f"{self.id} - Projeto - {self.titulo}"
 
 
     def check_expiration(self):

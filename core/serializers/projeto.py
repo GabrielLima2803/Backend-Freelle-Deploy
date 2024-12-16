@@ -48,15 +48,15 @@ class ProjetoSerializer(ModelSerializer):
         depth = 1
 
 
-class ProjetoDetailSerializer(ModelSerializer):
-    class Meta:
-        model = Projeto
-        fields = "__all__"
-        depth = 1
+# class ProjetoDetailSerializer(ModelSerializer):
+#     class Meta:
+#         model = Projeto
+#         fields = "__all__"
+#         depth = 1
 
 
-class ProjetoListSerializer(ModelSerializer):
-    class Meta:
-        model = Projeto
-        fields = ['id', 'titulo', 'descricao', 'status', 'categoria']
-        depth = 1
+# class ProjetoListSerializer(ModelSerializer):
+#     class Meta:
+#         model = Projeto
+#         fields = ['id', 'titulo', 'descricao', 'status', 'categoria']
+#         depth = 1

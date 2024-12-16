@@ -10,7 +10,7 @@ class UserProjeto(models.Model):
         SELECIONADO = 3, "Selecionado"
         NÃO_SELECIONADO = 4, "Não selecionado"
     empresa_user = models.ForeignKey(User, related_name="empresa_projects", on_delete=models.PROTECT, blank=True, null=True)
-    freelancer_user = models.ForeignKey(User, related_name="freelancer_projects", on_delete=models.PROTECT)
+    freelancer_user = models.ForeignKey(User, related_name="freelancer_projects", on_delete=models.PROTECT, blank=True, null=True)
     application_date = models.DateTimeField(default=timezone.now)
     is_selected = models.BooleanField(default=False)
     status = models.IntegerField(choices=StatusJob.choices, default=StatusJob.PENDENTE)
@@ -20,6 +20,7 @@ class UserProjeto(models.Model):
         verbose_name = "User Projeto"
         verbose_name_plural = "User Projetos"
         unique_together = ["empresa_user", "freelancer_user", "projeto"]
-
     def __str__(self):
-        return f"UserProjeto - Client: {self.empresa_user.username}, Freelancer: {self.freelancer_user.username}, Projeto: {self.projeto.titulo}"
+        user_name = getattr(self.empresa_user, 'email', "Sem usuário")
+        projeto_name = getattr(self.projeto, 'titulo', "Sem projeto")
+        return f"UserProjeto - Client: {user_name} Projeto: {projeto_name}"

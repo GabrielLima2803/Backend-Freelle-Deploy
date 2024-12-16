@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend, FilterSet, filters as django_filters
 
 from core.models import Projeto, UserProjeto
-from core.serializers import ProjetoSerializer
+from core.serializers import ProjetoSerializer, UserProjetoSerializer
 
 class ProjetoFilterSet(FilterSet):
     categoria_id = django_filters.NumberFilter(field_name='categoria__id', lookup_expr='exact')
@@ -105,9 +105,29 @@ class ProjetoViewSet(ModelViewSet):
         elif UserProjeto.objects.filter(freelancer_user=user).exists():
             projetos_ids = UserProjeto.objects.filter(freelancer_user=user).values_list('projeto_id', flat=True)
         else:
-             return Response({"detail": "Nenhum projeto encontrado para o usuário autenticado."}, status=404)
+             return Response({"detail": "Nenhum projeto encontrado para o usuário autenticado."})
 
         queryset = Projeto.objects.filter(id__in=projetos_ids)
 
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
+
+
+    @action(detail=False, methods=['get'], url_path='candidatos-da-empresa', url_name='candidatos_da_empresa', permission_classes=[IsAuthenticated])
+    def candidatos_da_empresa(self, request):
+        """
+        Retorna os candidatos de todos os projetos de uma empresa.
+        """
+        user = request.user
+        
+        projetos_empresa = Projeto.objects.filter(candidatos__empresa_user=user).distinct()
+
+        candidatos = []
+        for projeto in projetos_empresa:
+            candidatos_projeto = projeto.candidatos.filter(projeto=projeto)
+            candidatos.append({
+                'projeto': projeto.titulo,
+                'candidatos': UserProjetoSerializer(candidatos_projeto, many=True).data
+            })
+
+        return Response(candidatos)

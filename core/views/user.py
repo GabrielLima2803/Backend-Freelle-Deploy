@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from django.shortcuts import get_object_or_404
 
-from core.models import User, Projeto
+from core.models import User, Projeto, UserProjeto
 from core.serializers import UserSerializer, UserDetailSerializer, UserListSerializer, UserUpdateSerializer
 
 class UserViewSet(ModelViewSet):
@@ -61,8 +61,17 @@ class UserViewSet(ModelViewSet):
 
         job.check_max_candidates()
 
-        # (Aqui você pode adicionar o código que realiza a candidatura efetiva)
-        # Exemplo: job.candidatar_usuario(request.user)
+        if UserProjeto.objects.filter(projeto=job, freelancer_user=request.user).exists():
+            return Response(
+                {"error": "Você já se candidatou a esta vaga"},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        UserProjeto.objects.create(
+            projeto=job,
+            freelancer_user=request.user,  
+            status=UserProjeto.StatusJob.PENDENTE,   
+        )
 
         return Response(
             {"message": "Você se candidatou com sucesso à vaga"},
