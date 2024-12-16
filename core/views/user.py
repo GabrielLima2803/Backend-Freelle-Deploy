@@ -23,13 +23,15 @@ class UserViewSet(ModelViewSet):
     def update_me(self, request):
         """Atualiza as informações do usuário autenticado"""
         user = request.user
-        serializer = self.get_serializer(user, data=request.data, partial=True)
+        serializer = UserUpdateSerializer(user, data=request.data, partial=True)
 
         if serializer.is_valid():
-            if 'foto' in request.data:
-                user.foto = request.data['foto']
+            if 'foto' in request.FILES:
+                user.foto = request.FILES['foto']
+            
             serializer.save()
-            return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     @action(detail=False, methods=["get"], permission_classes=[AllowAny])

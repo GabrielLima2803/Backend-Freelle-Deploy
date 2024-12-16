@@ -22,11 +22,11 @@ class UserSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = "__all__"
+        depth = 1
 
 
 
 class UserDetailSerializer(ModelSerializer):
-    # avaliacoes_recebidas = AvaliacaoSerializer(many=True, read_only=True)
     class Meta:
         model = User
         fields = ["id", "username", "email", "is_empresa"]
@@ -45,18 +45,38 @@ class UserListSerializer(ModelSerializer):
         return [{"id": group.id, "name": group.name} for group in obj.groups.all()]
 
 class UserUpdateSerializer(serializers.ModelSerializer):
-    foto = serializers.ImageField(required=False)  
+    foto_url = serializers.SerializerMethodField()
+
     class Meta:
         model = User
-        fields = ["name", "email", "nacionalidade", "foto", "especializacao", "instagram", "linkedin", "username", "formacao"]
+        fields = [
+            "name",
+            "email",
+            "nacionalidade",
+            "foto", 
+            "foto_url", 
+            "especializacao",
+            "instagram",
+            "linkedin",
+            "username",
+            "formacao",
+            "biografia",
+        ]
         extra_kwargs = {
             "name": {"required": False},
             "email": {"required": False},
             "nacionalidade": {"required": False},
         }
 
+    def get_foto_url(self, obj):
+        """Retorna a URL da foto, se existir."""
+        if obj.foto and hasattr(obj.foto, "url"):
+            return obj.foto.url
+        return None
+
     def update(self, instance, validated_data):
-        foto = validated_data.get('foto', None)
+        # Verifica se 'foto' está nos dados validados e atualiza
+        foto = validated_data.pop('foto', None)
         if foto:
             instance.foto = foto
         return super().update(instance, validated_data)
