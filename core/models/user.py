@@ -10,6 +10,8 @@ from .favorito import Favorito
 from .formacao import Formacao
 from .nacionalidade import Nacionalidade
 import uuid
+from .portifolio import Portifolio
+from django.core.validators import RegexValidator
 
 
 def generate_unique_passage_id():
@@ -51,28 +53,43 @@ class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=255)
     biografia = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    nacionalidade = models.ForeignKey(Nacionalidade, related_name="users", on_delete=models.PROTECT, null=True, blank=True)
     linguagem_principal = models.CharField(max_length=255, null=True, blank=True)
     especializacao = models.CharField(max_length=255, null=True, blank=True)
-    
-    foto = models.ImageField(upload_to='profile_pics/', null=True, blank=True)
-
-    foto_str = models.CharField(max_length=1024, null=True, blank=True)  
-
-    
+    foto = models.ForeignKey(
+        Image,
+        related_name="+",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        default=None,
+    )    
     instagram = models.CharField(max_length=255, unique=True, null=True, blank=True)
     linkedin = models.CharField(max_length=255, unique=True, null=True, blank=True)
     isPro = models.BooleanField(default=False)
     passage_id = models.CharField(max_length=255, unique=True, default=generate_unique_passage_id)
     email = models.EmailField(max_length=255, unique=True)
     is_active = models.BooleanField(default=True)
+    portifolio = models.ManyToManyField(Portifolio, blank=True)
+    # expert
+    total_pedidos = models.FloatField(default=0)
+    area_atuacao =  models.CharField(max_length=255, null=True, blank=True)
     is_staff = models.BooleanField(default=False)
-    favorito = models.ForeignKey(Favorito, related_name="users", on_delete=models.PROTECT, null=True, blank=True)
     reset_code = models.CharField(max_length=6, null=True, blank=True)
-    formacao = models.ForeignKey(Formacao, related_name="users", on_delete=models.PROTECT, null=True, blank=True)
     rating = models.FloatField(default=0.0, verbose_name="Média de Avaliações")
     total_avaliacoes = models.PositiveIntegerField(default=0, verbose_name="Total de Avaliações")
-
+    nacionalidade = models.ForeignKey(Nacionalidade, related_name="users", on_delete=models.PROTECT, null=True, blank=True)
+    formacao = models.ForeignKey(Formacao, related_name="users", on_delete=models.PROTECT, null=True, blank=True)
+    favorito = models.ForeignKey(Favorito, related_name="users", on_delete=models.PROTECT, null=True, blank=True)
+    cnpj = models.CharField(max_length=18, unique=True, null=True, blank=True)  
+    descricao = models.TextField(null=True, blank=True)  
+    telefone = models.CharField(
+        max_length=20,  
+        blank=True,
+        null=True,
+        validators=[RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Número de telefone inválido.")]
+    )   
+    is_empresa = models.BooleanField(default=False) 
+    
     objects = UserManager()
 
     USERNAME_FIELD = "username"
@@ -86,6 +103,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username or self.email
+
 
     def atualizar_rating(self, nova_avaliacao):
         """Atualiza a média de avaliações."""

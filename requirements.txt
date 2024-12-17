@@ -2,6 +2,7 @@
 # Please do not edit it manually.
 
 asgiref==3.8.1
+async-timeout==4.0.3; python_full_version < "3.11.3"
 attrs==23.2.0
 blinker==1.8.2
 brotli==1.1.0
@@ -51,6 +52,7 @@ python-dotenv==1.0.1
 python-magic==0.4.27; sys_platform == "linux"
 python-magic-bin==0.4.14; sys_platform == "win32"
 pyyaml==6.0.1
+redis==5.1.1
 referencing==0.35.1
 requests==2.32.3
 rpds-py==0.18.1

@@ -1,33 +1,15 @@
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
-from .projeto import ProjetoSerializer
-from .user import UserSerializer
-
+from .user import UserDetailSerializer
 from core.models import UserProjeto
 
 class UserProjetoSerializer(ModelSerializer):
-    fk_client_user = UserSerializer()
-    fk_freelancer_user = UserSerializer()
-    projeto = ProjetoSerializer()
+    status = serializers.CharField(source="get_status_display")
+    freelancer_user = UserDetailSerializer(read_only=True)
+    empresa_nome = serializers.CharField(source="empresa_user.nome", read_only=True)      
     class Meta:
         model = UserProjeto
-        fields = "__all__"
+        fields = ["id", "freelancer_user", "application_date", "status", "empresa_nome"]
+        depth = 1
 
-class UserProjetoDetailSerializer(ModelSerializer):
-        fk_client_user = UserSerializer()
-        fk_freelancer_user = UserSerializer()
-        projeto = ProjetoSerializer()
-
-        class Meta:
-             model = UserProjeto
-             fields = "__all__"
-             depth = 1
-
-class ListUserProjetoSerializer(ModelSerializer):
-    fk_client_user = UserSerializer()
-    fk_freelancer_user = UserSerializer()
-    projeto = ProjetoSerializer()
-    class Meta:
-        model = UserProjeto
-        fields = ['id', 'fk_client_user', 'fk_freelancer_user', 'projeto', 'projeto.status']
 
