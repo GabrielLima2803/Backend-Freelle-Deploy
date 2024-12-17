@@ -1,0 +1,1803 @@
+MODE = 'DEVELOPMENT' 
+MEDIA_URL = 'http://127.0.0.1:8000/media/' 
+DATABASES = {'default': {'NAME': 'db.sqlite3', 'USER': '', 'PASSWORD': '', 'HOST': '', 'PORT': '', 'CONN_MAX_AGE': 600, 'CONN_HEALTH_CHECKS': True, 'DISABLE_SERVER_SIDE_CURSORS': False, 'ENGINE': 'django.db.backends.sqlite3'}}
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2024-12-17T17:07:07.377Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "1",
+    "object_repr": "Categoria - Programação e  Tecnologia",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2024-12-17T17:07:19.393Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "2",
+    "object_repr": "Categoria - Design Gráfico",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2024-12-17T17:07:37.155Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "3",
+    "object_repr": "Categoria - Redação e Tradução",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2024-12-17T17:07:47.274Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "4",
+    "object_repr": "Categoria - Vídeo e Animação",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2024-12-17T17:08:28.569Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": "Categoria - Música e  Áudio",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2024-12-17T17:08:51.601Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "6",
+    "object_repr": "Categoria - Negócios",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2024-12-17T17:09:10.530Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "7",
+    "object_repr": "Categoria - Marketing Digital",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2024-12-17T17:09:27.658Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "8",
+    "object_repr": "Categoria - nome  Consultoria",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2024-12-17T17:09:43.458Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "9",
+    "object_repr": "Categoria - Motoboy e Entregas",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2024-12-17T17:09:51.289Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "10",
+    "object_repr": "Categoria - Garçom",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2024-12-17T17:10:01.889Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "11",
+    "object_repr": "Categoria - Manobrista",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2024-12-17T17:20:45.031Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": " - 497d2a98-08d9-4099-b4c2-6ab016aa752a",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2024-12-17T17:21:18.464Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Lima",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2024-12-17T17:21:37.897Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Freenlancer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2024-12-17T17:21:42.135Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Empresa",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2024-12-17T17:22:01.542Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Lima",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2024-12-17T17:23:18.121Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "2",
+    "object_repr": "Ana - dcbeb4e1-eee5-4274-b5f0-dee90e269de4",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2024-12-17T17:23:31.941Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Ana",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2024-12-17T17:24:01.926Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Ana",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2024-12-17T17:24:19.871Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Lima",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Total pedidos\", \"Area atuacao\", \"M\\u00e9dia de Avalia\\u00e7\\u00f5es\", \"Total de Avalia\\u00e7\\u00f5es\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2024-12-17T17:24:27.630Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "Lima",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2024-12-17T17:24:51.447Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "Ana",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Nacionalidade\", \"Total pedidos\", \"Area atuacao\", \"M\\u00e9dia de Avalia\\u00e7\\u00f5es\", \"Total de Avalia\\u00e7\\u00f5es\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add Categoria",
+    "content_type": 6,
+    "codename": "add_categoria"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change Categoria",
+    "content_type": 6,
+    "codename": "change_categoria"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete Categoria",
+    "content_type": 6,
+    "codename": "delete_categoria"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view Categoria",
+    "content_type": 6,
+    "codename": "view_categoria"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add Favorito",
+    "content_type": 7,
+    "codename": "add_favorito"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change Favorito",
+    "content_type": 7,
+    "codename": "change_favorito"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete Favorito",
+    "content_type": 7,
+    "codename": "delete_favorito"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view Favorito",
+    "content_type": 7,
+    "codename": "view_favorito"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add Formação",
+    "content_type": 8,
+    "codename": "add_formacao"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change Formação",
+    "content_type": 8,
+    "codename": "change_formacao"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete Formação",
+    "content_type": 8,
+    "codename": "delete_formacao"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view Formação",
+    "content_type": 8,
+    "codename": "view_formacao"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add Nacionalidade",
+    "content_type": 9,
+    "codename": "add_nacionalidade"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change Nacionalidade",
+    "content_type": 9,
+    "codename": "change_nacionalidade"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete Nacionalidade",
+    "content_type": 9,
+    "codename": "delete_nacionalidade"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view Nacionalidade",
+    "content_type": 9,
+    "codename": "view_nacionalidade"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add Usuário",
+    "content_type": 10,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change Usuário",
+    "content_type": 10,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete Usuário",
+    "content_type": 10,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view Usuário",
+    "content_type": 10,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add Projeto",
+    "content_type": 11,
+    "codename": "add_projeto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change Projeto",
+    "content_type": 11,
+    "codename": "change_projeto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete Projeto",
+    "content_type": 11,
+    "codename": "delete_projeto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view Projeto",
+    "content_type": 11,
+    "codename": "view_projeto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add Avaliação",
+    "content_type": 12,
+    "codename": "add_avaliacao"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change Avaliação",
+    "content_type": 12,
+    "codename": "change_avaliacao"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete Avaliação",
+    "content_type": 12,
+    "codename": "delete_avaliacao"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view Avaliação",
+    "content_type": 12,
+    "codename": "view_avaliacao"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add User Projeto",
+    "content_type": 13,
+    "codename": "add_userprojeto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change User Projeto",
+    "content_type": 13,
+    "codename": "change_userprojeto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete User Projeto",
+    "content_type": 13,
+    "codename": "delete_userprojeto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view User Projeto",
+    "content_type": 13,
+    "codename": "view_userprojeto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add portifolio",
+    "content_type": 14,
+    "codename": "add_portifolio"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change portifolio",
+    "content_type": 14,
+    "codename": "change_portifolio"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete portifolio",
+    "content_type": 14,
+    "codename": "delete_portifolio"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view portifolio",
+    "content_type": 14,
+    "codename": "view_portifolio"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add document",
+    "content_type": 15,
+    "codename": "add_document"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change document",
+    "content_type": 15,
+    "codename": "change_document"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete document",
+    "content_type": 15,
+    "codename": "delete_document"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view document",
+    "content_type": 15,
+    "codename": "view_document"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add image",
+    "content_type": 16,
+    "codename": "add_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change image",
+    "content_type": 16,
+    "codename": "change_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete image",
+    "content_type": 16,
+    "codename": "delete_image"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view image",
+    "content_type": 16,
+    "codename": "view_image"
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Freenlancer",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Empresa",
+    "permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "core",
+    "model": "categoria"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "core",
+    "model": "favorito"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "core",
+    "model": "formacao"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "core",
+    "model": "nacionalidade"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "core",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "core",
+    "model": "projeto"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "core",
+    "model": "avaliacao"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "core",
+    "model": "userprojeto"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "core",
+    "model": "portifolio"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "uploader",
+    "model": "document"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "uploader",
+    "model": "image"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "vlf2w98z4rtr9bvkah6h0x7gp35q8jwh",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAowyAu3fcMBGZAqoYmpV0Z765NutDtf-_9lwhxW2vYel7CxOIitDj9binSI7cd8D222yxpbusyJbkr8qBdjjPn5_Vw_w5q7PVbKySwChmguGydIWYgDzZrB4XKOauBCDEm5dD5AUvBopPxDgwZxSzeH98SN-I:1tNbET:KVs77vYkNF1IpTGgjL7la13fMh5uaIHAbPGcKjcZC5Q",
+    "expire_date": "2024-12-31T17:19:41.540Z"
+  }
+},
+{
+  "model": "core.formacao",
+  "pk": 1,
+  "fields": {
+    "nivel_academico": "graduacao",
+    "escola_academica": "Universidade Federal de Minas Gerais"
+  }
+},
+{
+  "model": "core.formacao",
+  "pk": 2,
+  "fields": {
+    "nivel_academico": "pos_graduacao",
+    "escola_academica": "Universidade de São Paulo"
+  }
+},
+{
+  "model": "core.formacao",
+  "pk": 3,
+  "fields": {
+    "nivel_academico": "mestrado",
+    "escola_academica": "Universidade Estadual de Campinas"
+  }
+},
+{
+  "model": "core.formacao",
+  "pk": 4,
+  "fields": {
+    "nivel_academico": "doutorado",
+    "escola_academica": "Universidade de Oxford"
+  }
+},
+{
+  "model": "core.formacao",
+  "pk": 5,
+  "fields": {
+    "nivel_academico": "medio",
+    "escola_academica": "Escola Técnica Estadual de São Paulo"
+  }
+},
+{
+  "model": "core.formacao",
+  "pk": 6,
+  "fields": {
+    "nivel_academico": "fundamental",
+    "escola_academica": "Escola Municipal do Rio de Janeiro"
+  }
+},
+{
+  "model": "core.formacao",
+  "pk": 7,
+  "fields": {
+    "nivel_academico": "graduacao",
+    "escola_academica": "Universidade de São Paulo"
+  }
+},
+{
+  "model": "core.formacao",
+  "pk": 8,
+  "fields": {
+    "nivel_academico": "graduacao",
+    "escola_academica": "Universidade Federal"
+  }
+},
+{
+  "model": "core.formacao",
+  "pk": 9,
+  "fields": {
+    "nivel_academico": "pos_graduacao",
+    "escola_academica": "Instituto de Tecnologia"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 1,
+  "fields": {
+    "nome": "Brasil",
+    "sigla": "BR",
+    "cidade": "Brasília"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 2,
+  "fields": {
+    "nome": "Argentina",
+    "sigla": "AR",
+    "cidade": "Buenos Aires"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 3,
+  "fields": {
+    "nome": "Chile",
+    "sigla": "CL",
+    "cidade": "Santiago"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 4,
+  "fields": {
+    "nome": "Colômbia",
+    "sigla": "CO",
+    "cidade": "Bogotá"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 5,
+  "fields": {
+    "nome": "Peru",
+    "sigla": "PE",
+    "cidade": "Lima"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 6,
+  "fields": {
+    "nome": "México",
+    "sigla": "MX",
+    "cidade": "Cidade do México"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 7,
+  "fields": {
+    "nome": "Estados Unidos",
+    "sigla": "US",
+    "cidade": "Washington, D.C."
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 8,
+  "fields": {
+    "nome": "Canadá",
+    "sigla": "CA",
+    "cidade": "Ottawa"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 9,
+  "fields": {
+    "nome": "Uruguai",
+    "sigla": "UY",
+    "cidade": "Montevidéu"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 10,
+  "fields": {
+    "nome": "Paraguai",
+    "sigla": "PY",
+    "cidade": "Assunção"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 11,
+  "fields": {
+    "nome": "França",
+    "sigla": "FR",
+    "cidade": "Paris"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 12,
+  "fields": {
+    "nome": "Alemanha",
+    "sigla": "DE",
+    "cidade": "Berlim"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 13,
+  "fields": {
+    "nome": "Itália",
+    "sigla": "IT",
+    "cidade": "Roma"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 14,
+  "fields": {
+    "nome": "Japão",
+    "sigla": "JP",
+    "cidade": "Tóquio"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 15,
+  "fields": {
+    "nome": "Reino Unido",
+    "sigla": "GB",
+    "cidade": "Londres"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 16,
+  "fields": {
+    "nome": "Australia",
+    "sigla": "AU",
+    "cidade": "Canberra"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 17,
+  "fields": {
+    "nome": "China",
+    "sigla": "CN",
+    "cidade": "Pequim"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 18,
+  "fields": {
+    "nome": "Rússia",
+    "sigla": "RU",
+    "cidade": "Moscou"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 19,
+  "fields": {
+    "nome": "Índia",
+    "sigla": "IN",
+    "cidade": "Nova Deli"
+  }
+},
+{
+  "model": "core.nacionalidade",
+  "pk": 20,
+  "fields": {
+    "nome": "Brasileiro",
+    "sigla": "",
+    "cidade": null
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 1,
+  "fields": {
+    "nome": "Programação e  Tecnologia",
+    "icon": "mdi mdi-monitor"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 2,
+  "fields": {
+    "nome": "Design Gráfico",
+    "icon": "mdi mdi-palette-advanced"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 3,
+  "fields": {
+    "nome": "Redação e Tradução",
+    "icon": "mdi mdi-comment-text"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 4,
+  "fields": {
+    "nome": "Vídeo e Animação",
+    "icon": "mdi mdi-presentation-play"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 5,
+  "fields": {
+    "nome": "Música e  Áudio",
+    "icon": "mdi mdi-music-note"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 6,
+  "fields": {
+    "nome": "Negócios",
+    "icon": "mdi mdi-account-multiple"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 7,
+  "fields": {
+    "nome": "Marketing Digital",
+    "icon": "mdi mdi-television-guide"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 8,
+  "fields": {
+    "nome": "nome  Consultoria",
+    "icon": "mdi mdi-account-switch"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 9,
+  "fields": {
+    "nome": "Motoboy e Entregas",
+    "icon": "mdi mdi-motorbike"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 10,
+  "fields": {
+    "nome": "Garçom",
+    "icon": "mdi mdi-linux"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 11,
+  "fields": {
+    "nome": "Manobrista",
+    "icon": "mdi mdi-car"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 12,
+  "fields": {
+    "nome": "Desenvolvimento Web",
+    "icon": ""
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 13,
+  "fields": {
+    "nome": "Gestão de Projetos",
+    "icon": ""
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 14,
+  "fields": {
+    "nome": "Consultoria Tecnológica",
+    "icon": ""
+  }
+},
+{
+  "model": "core.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$A0lHKE0quUBvIUo1jFQWdO$Qu+PJ+/aJO9s4sdmymrt6GluuGFn9P+c5fSB5v8lVBk=",
+    "last_login": "2024-12-17T17:19:41.538Z",
+    "is_superuser": true,
+    "username": "admin",
+    "name": "",
+    "biografia": null,
+    "created_at": "2024-12-17T17:06:10.286Z",
+    "linguagem_principal": null,
+    "especializacao": null,
+    "foto": null,
+    "instagram": null,
+    "linkedin": null,
+    "isPro": false,
+    "passage_id": "12d18659-3412-488d-900a-491b25be5682",
+    "email": "admin@admin.com",
+    "is_active": true,
+    "total_pedidos": 0.0,
+    "area_atuacao": null,
+    "is_staff": true,
+    "reset_code": null,
+    "rating": 0.0,
+    "total_avaliacoes": 0,
+    "nacionalidade": null,
+    "formacao": null,
+    "favorito": null,
+    "cnpj": null,
+    "descricao": null,
+    "telefone": null,
+    "is_empresa": false,
+    "groups": [],
+    "user_permissions": [],
+    "portifolio": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$nG0qNHOrEYq2uxpli5h69z$/btze2Ant+hVUHFfSXFUfoNrnHvxxqmMdxJwVUfkGig=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Lima",
+    "name": "Gabriel Lima",
+    "biografia": "Gabriel Lima é um nome comum no Brasil, refletindo a história de um indivíduo que tem se destacado por sua dedicação em várias áreas, desde a tecnologia até o envolvimento com causas sociais. Nascido em um contexto familiar que valoriza o aprendizado e o desenvolvimento pessoal, Gabriel sempre demonstrou um interesse natural por resolver problemas e buscar soluções criativas.",
+    "created_at": "2024-12-17T17:21:18.462Z",
+    "linguagem_principal": "Português",
+    "especializacao": "Programador",
+    "foto": 1,
+    "instagram": "instaLima",
+    "linkedin": "linkedinLima",
+    "isPro": false,
+    "passage_id": "fbd74a81-57df-4cbb-9794-4ffbf7c3e15e",
+    "email": "gabriellima2803@gmail.com",
+    "is_active": true,
+    "total_pedidos": 120.0,
+    "area_atuacao": "Informatica",
+    "is_staff": false,
+    "reset_code": null,
+    "rating": 10.0,
+    "total_avaliacoes": 240,
+    "nacionalidade": 1,
+    "formacao": null,
+    "favorito": null,
+    "cnpj": null,
+    "descricao": "",
+    "telefone": null,
+    "is_empresa": false,
+    "groups": [
+      2
+    ],
+    "user_permissions": [],
+    "portifolio": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$I1HNFn5hKWhm2LBZ4yOwkn$2OeHgbSxTSlOKQXovkENJh9690qlOKjOgTt3pZHF0Bg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Ana",
+    "name": "Ana Clara",
+    "biografia": "Ana Clara é uma jovem dedicada e apaixonada por conhecimento, com um perfil que reflete sua curiosidade intelectual e seu compromisso com o desenvolvimento pessoal e profissional. Desde cedo, Ana Clara se destacou por sua habilidade de se conectar com diversas áreas do saber, cultivando uma paixão por educação, cultura e inovação.",
+    "created_at": "2024-12-17T17:23:31.940Z",
+    "linguagem_principal": "Português",
+    "especializacao": "Desing",
+    "foto": 2,
+    "instagram": "instaAna",
+    "linkedin": "linkedinAna",
+    "isPro": false,
+    "passage_id": "162b909a-16b5-4247-808e-d562204cd478",
+    "email": "gomes06anaclara@gmail.com",
+    "is_active": true,
+    "total_pedidos": 10.0,
+    "area_atuacao": "UI UX",
+    "is_staff": false,
+    "reset_code": null,
+    "rating": 10.0,
+    "total_avaliacoes": 1200,
+    "nacionalidade": 1,
+    "formacao": null,
+    "favorito": null,
+    "cnpj": null,
+    "descricao": "",
+    "telefone": null,
+    "is_empresa": false,
+    "groups": [
+      1
+    ],
+    "user_permissions": [],
+    "portifolio": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 4,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "mario.silva",
+    "name": "Mario Silva",
+    "biografia": "Desenvolvedor backend com foco em APIs RESTful e bancos de dados.",
+    "created_at": "2024-12-17T17:31:27.927Z",
+    "linguagem_principal": null,
+    "especializacao": null,
+    "foto": null,
+    "instagram": "https://www.instagram.com/mariosilva.dev",
+    "linkedin": "https://www.linkedin.com/in/mariosilvadev",
+    "isPro": true,
+    "passage_id": "mno123rst456",
+    "email": "mario.silva@example.com",
+    "is_active": true,
+    "total_pedidos": 8.0,
+    "area_atuacao": "Desenvolvimento Backend",
+    "is_staff": false,
+    "reset_code": null,
+    "rating": 4.0,
+    "total_avaliacoes": 7,
+    "nacionalidade": 1,
+    "formacao": 7,
+    "favorito": null,
+    "cnpj": null,
+    "descricao": "Especialista em Python e Django, com experiência em desenvolvimento de APIs.",
+    "telefone": "+5511777777777",
+    "is_empresa": false,
+    "groups": [],
+    "user_permissions": [],
+    "portifolio": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 5,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "lucas.souza",
+    "name": "Lucas Souza",
+    "biografia": "Gerente de projetos ágeis com experiência em coordenação de equipes de desenvolvimento.",
+    "created_at": "2024-12-17T17:31:48.277Z",
+    "linguagem_principal": null,
+    "especializacao": null,
+    "foto": null,
+    "instagram": "https://www.instagram.com/lucas.souza.pro",
+    "linkedin": "https://www.linkedin.com/in/lucassouzapm",
+    "isPro": true,
+    "passage_id": "def456ghi789",
+    "email": "lucas.souza@example.com",
+    "is_active": true,
+    "total_pedidos": 15.0,
+    "area_atuacao": "Gestão de Projetos",
+    "is_staff": true,
+    "reset_code": null,
+    "rating": 4.8,
+    "total_avaliacoes": 10,
+    "nacionalidade": 1,
+    "formacao": 7,
+    "favorito": null,
+    "cnpj": null,
+    "descricao": "Líder de equipe com foco em entregas ágeis e resultados de alta qualidade.",
+    "telefone": "+5511666666666",
+    "is_empresa": false,
+    "groups": [],
+    "user_permissions": [],
+    "portifolio": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 6,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "carla.martins",
+    "name": "Carla Martins",
+    "biografia": "Desenvolvedora Full Stack apaixonada por novas tecnologias.",
+    "created_at": "2024-12-17T17:33:58.370Z",
+    "linguagem_principal": null,
+    "especializacao": null,
+    "foto": null,
+    "instagram": "https://instagram.com/carla.martins",
+    "linkedin": "https://linkedin.com/in/carla-martins",
+    "isPro": false,
+    "passage_id": "8d2a5a34-31d4-4f0c-9e58-2d2d7d5bc99c",
+    "email": "carla.martins@email.com",
+    "is_active": true,
+    "total_pedidos": 0.0,
+    "area_atuacao": "Desenvolvimento de software",
+    "is_staff": false,
+    "reset_code": null,
+    "rating": 4.5,
+    "total_avaliacoes": 3,
+    "nacionalidade": 20,
+    "formacao": 8,
+    "favorito": null,
+    "cnpj": null,
+    "descricao": "Carla é uma desenvolvedora apaixonada por codificação e com 5 anos de experiência.",
+    "telefone": "+5511999999999",
+    "is_empresa": false,
+    "groups": [],
+    "user_permissions": [],
+    "portifolio": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 7,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "joao.pereira",
+    "name": "João Pereira",
+    "biografia": "Consultor de TI especializado em infraestrutura de redes e segurança.",
+    "created_at": "2024-12-17T17:33:58.373Z",
+    "linguagem_principal": null,
+    "especializacao": null,
+    "foto": null,
+    "instagram": "https://instagram.com/joao.pereira",
+    "linkedin": "https://linkedin.com/in/joao-pereira",
+    "isPro": false,
+    "passage_id": "fa834a88-72c8-4d5a-95cf-c60f4f5997d4",
+    "email": "joao.pereira@email.com",
+    "is_active": true,
+    "total_pedidos": 0.0,
+    "area_atuacao": "Consultoria em TI",
+    "is_staff": false,
+    "reset_code": null,
+    "rating": 4.0,
+    "total_avaliacoes": 5,
+    "nacionalidade": 20,
+    "formacao": 9,
+    "favorito": null,
+    "cnpj": null,
+    "descricao": "João é especialista em redes e segurança com 10 anos de experiência no setor.",
+    "telefone": "+5511988888888",
+    "is_empresa": false,
+    "groups": [],
+    "user_permissions": [],
+    "portifolio": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 8,
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "luciana.alves",
+    "name": "Luciana Alves",
+    "biografia": "Designer gráfica com foco em design de interfaces e experiência do usuário.",
+    "created_at": "2024-12-17T17:33:58.376Z",
+    "linguagem_principal": null,
+    "especializacao": null,
+    "foto": null,
+    "instagram": "https://instagram.com/luciana.alves",
+    "linkedin": "https://linkedin.com/in/luciana-alves",
+    "isPro": false,
+    "passage_id": "d792a568-63b0-45b6-a474-61858a1f5704",
+    "email": "luciana.alves@email.com",
+    "is_active": true,
+    "total_pedidos": 0.0,
+    "area_atuacao": "Design Gráfico",
+    "is_staff": false,
+    "reset_code": null,
+    "rating": 4.8,
+    "total_avaliacoes": 7,
+    "nacionalidade": 20,
+    "formacao": 8,
+    "favorito": null,
+    "cnpj": null,
+    "descricao": "Luciana tem mais de 8 anos de experiência em design gráfico e design de interfaces.",
+    "telefone": "+5511977777777",
+    "is_empresa": false,
+    "groups": [],
+    "user_permissions": [],
+    "portifolio": []
+  }
+},
+{
+  "model": "core.projeto",
+  "pk": 1,
+  "fields": {
+    "titulo": "API RESTful para E-commerce",
+    "descricao": "Desenvolvimento de uma API RESTful para integração com e-commerce.",
+    "foto": null,
+    "status": 2,
+    "preco": "5000.00",
+    "prazo_entrega": "2024-03-10",
+    "proposta_recebida": "4500.00",
+    "orcamento": "5000.00",
+    "data_publicada": "2024-12-17",
+    "isExpired": false,
+    "isClosed": false,
+    "max_candidates": 3,
+    "selected_user": 4,
+    "categoria": [
+      12,
+      13
+    ]
+  }
+},
+{
+  "model": "core.projeto",
+  "pk": 2,
+  "fields": {
+    "titulo": "Microserviço para Processamento de Pagamentos",
+    "descricao": "Desenvolvimento de um microserviço para processar pagamentos em uma plataforma de e-commerce.",
+    "foto": null,
+    "status": 2,
+    "preco": "8000.00",
+    "prazo_entrega": "2024-06-20",
+    "proposta_recebida": "7000.00",
+    "orcamento": "8000.00",
+    "data_publicada": "2024-12-17",
+    "isExpired": false,
+    "isClosed": false,
+    "max_candidates": 2,
+    "selected_user": 4,
+    "categoria": [
+      12,
+      14
+    ]
+  }
+},
+{
+  "model": "core.projeto",
+  "pk": 3,
+  "fields": {
+    "titulo": "Gestão de Projetos Ágeis para Startup",
+    "descricao": "Consultoria e gestão de projetos ágeis para uma nova startup no mercado de tecnologia.",
+    "foto": null,
+    "status": 2,
+    "preco": "12000.00",
+    "prazo_entrega": "2024-04-15",
+    "proposta_recebida": "11500.00",
+    "orcamento": "12000.00",
+    "data_publicada": "2024-12-17",
+    "isExpired": false,
+    "isClosed": false,
+    "max_candidates": 2,
+    "selected_user": 5,
+    "categoria": [
+      13
+    ]
+  }
+},
+{
+  "model": "core.projeto",
+  "pk": 4,
+  "fields": {
+    "titulo": "Consultoria em Transformação Digital",
+    "descricao": "Consultoria para empresas que estão passando por um processo de transformação digital.",
+    "foto": null,
+    "status": 2,
+    "preco": "15000.00",
+    "prazo_entrega": "2024-05-10",
+    "proposta_recebida": "14000.00",
+    "orcamento": "15000.00",
+    "data_publicada": "2024-12-17",
+    "isExpired": false,
+    "isClosed": false,
+    "max_candidates": 1,
+    "selected_user": 5,
+    "categoria": [
+      14
+    ]
+  }
+},
+{
+  "model": "uploader.image",
+  "pk": 1,
+  "fields": {
+    "attachment_key": "497d2a98-08d9-4099-b4c2-6ab016aa752a",
+    "public_id": "f75ce8ca-c803-4dd6-bd5f-0231bd512c7d",
+    "file": "images/f75ce8ca-c803-4dd6-bd5f-0231bd512c7d.png",
+    "description": "",
+    "uploaded_on": "2024-12-17T17:20:45.031Z"
+  }
+},
+{
+  "model": "uploader.image",
+  "pk": 2,
+  "fields": {
+    "attachment_key": "dcbeb4e1-eee5-4274-b5f0-dee90e269de4",
+    "public_id": "f5048fac-bc1c-4f45-9e2b-601c7666bb49",
+    "file": "images/f5048fac-bc1c-4f45-9e2b-601c7666bb49.jpg",
+    "description": "Ana",
+    "uploaded_on": "2024-12-17T17:23:18.120Z"
+  }
+}
+]
