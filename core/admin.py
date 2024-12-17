@@ -7,29 +7,38 @@ from core import models
 
 class UserAdmin(BaseUserAdmin):
     """Define the admin pages for users."""
-
-    ordering = ["id"]
-    list_display = ('username', 'email', 'name', 'passage_id', 'is_active', 'is_staff')
     
-    # Use __all__ to include all fields of the User model
+    ordering = ["id"]
+    
+    # Atualize list_display para incluir todos os campos desejados
+    list_display = (
+        'username', 'email', 'name', 'biografia', 'linguagem_principal', 'especializacao',
+        'instagram', 'linkedin', 'isPro', 'passage_id', 'is_active', 'is_staff', 'is_empresa',
+        'total_pedidos', 'area_atuacao', 'rating', 'total_avaliacoes', 'nacionalidade', 'formacao',
+        'favorito', 'cnpj', 'descricao', 'telefone', 'created_at'
+    )
+    
+    # Atualize fieldsets para incluir todos os campos desejados
     fieldsets = (
         (None, {"fields": ("email", "password")}),
-        (_("Personal Info"), {"fields": ("username", "name", "foto", "passage_id")}),
-        (
-            _("Permissions"),
-            {
-                "fields": (
-                    "is_active",
-                    "is_staff",
-                    "is_superuser",
-                )
-            },
-        ),
+        (_("Personal Info"), {"fields": (
+            "username", "name", "biografia", "linguagem_principal", "especializacao", "foto", 
+            "instagram", "linkedin", "isPro", "passage_id", "created_at"
+        )}),
+        (_("Company Info"), {"fields": (
+            "cnpj", "descricao", "telefone", "is_empresa"
+        )}),
+        (_("Permissions"), {
+            "fields": ("is_active", "is_staff", "is_superuser", "groups", "user_permissions")
+        }),
         (_("Important dates"), {"fields": ("last_login",)}),
-        (_("Groups"), {"fields": ("groups",)}),
+        (_("Related Fields"), {"fields": (
+            "portifolio", "nacionalidade", "formacao", "favorito", "total_pedidos", "area_atuacao", 
+            "rating", "total_avaliacoes"
+        )}),
     )
-
-    readonly_fields = ["last_login"]
+    
+    readonly_fields = ["last_login", "created_at"]
     
     add_fieldsets = (
         (
@@ -37,14 +46,9 @@ class UserAdmin(BaseUserAdmin):
             {
                 "classes": ("wide",),
                 "fields": (
-                    "email",
-                    "password1",
-                    "password2",
-                    "username",
-                    "name",
-                    "is_active",
-                    "is_staff",
-                    "is_superuser",
+                    "email", "password1", "password2", "username", "name", "biografia", "linguagem_principal",
+                    "especializacao", "foto", "instagram", "linkedin", "isPro", "passage_id", "is_active", 
+                    "is_staff", "is_superuser", "portifolio", "nacionalidade", "formacao", "favorito"
                 ),
             },
         ),

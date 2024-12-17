@@ -196,3 +196,20 @@ class ProjetoViewSet(ModelViewSet):
             })
 
         return Response(candidatos)
+    
+    @action(detail=False, methods=['get'], url_path='meus-projetos-candidatados', url_name='meus_projetos_candidatados', permission_classes=[IsAuthenticated])
+    def meus_projetos_candidatados(self, request):
+        """
+        Retorna os projetos nos quais o usuário logado se candidatou como freelancer.
+        """
+        user = request.user
+
+        # Filtra os projetos onde o usuário é um freelancer e fez uma candidatura
+        projetos_ids = UserProjeto.objects.filter(freelancer_user=user).values_list('projeto_id', flat=True)
+        if not projetos_ids:
+            return Response({"detail": "Você não se candidatou a nenhum projeto."}, status=status.HTTP_404_NOT_FOUND)
+
+        queryset = Projeto.objects.filter(id__in=projetos_ids)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
