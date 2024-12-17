@@ -114,8 +114,8 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "gabriellima2803@gmail.com"
-EMAIL_HOST_PASSWORD = "vvzz awdb gcjn ixyu"
+EMAIL_HOST_USER = "freelleifc@gmail.com"
+EMAIL_HOST_PASSWORD = "wkun zyqf fppb iczd"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -152,6 +152,25 @@ SPECTACULAR_SETTINGS = {
 }
 
 AUTH_USER_MODEL = "core.User"
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
+
 
 REST_FRAMEWORK = {
     # "DEFAULT_AUTHENTICATION_CLASSES": ("core.authentication.TokenAuthentication",), # Autenticação no passage.id
