@@ -11,7 +11,7 @@ cffi==1.16.0; platform_python_implementation != "PyPy"
 cfgv==3.4.0
 charset-normalizer==3.3.2
 click==8.1.7
-cloudinary==1.40.0
+cloudinary
 colorama==0.4.6; sys_platform == "win32" or platform_system == "Windows"
 cryptography==42.0.8
 distlib==0.3.8
@@ -67,3 +67,4 @@ uvicorn==0.30.1
 virtualenv==20.26.2
 werkzeug==3.0.3
 whitenoise[brotli]==6.6.0
+redis
