@@ -7,6 +7,9 @@ from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend, FilterSet, filters as django_filters
 from rest_framework.exceptions import ValidationError
 
+from django.core.mail import send_mail
+from django.shortcuts import get_object_or_404
+from django.template.loader import render_to_string
 
 from core.models import Projeto, UserProjeto, User, Categoria
 from core.serializers import ProjetoSerializer, UserProjetoSerializer
@@ -109,7 +112,7 @@ class ProjetoViewSet(ModelViewSet):
         """
         Permite que a empresa selecione um candidato para uma vaga e remova outros candidatos da vaga.
         """
-        projeto = get_object_or_404(Projeto, pk=pk)  # Busca o projeto pelo ID
+        projeto = get_object_or_404(Projeto, pk=pk)  
 
         application_id = request.data.get("application_id")
         if not application_id:
@@ -126,36 +129,46 @@ class ProjetoViewSet(ModelViewSet):
                 status=status.HTTP_404_NOT_FOUND
             )
 
-        # Verificando se o candidato já foi selecionado
         if application.is_selected:
             return Response(
                 {"error": "Este candidato já foi selecionado."},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        # Atualizando os outros candidatos para não selecionados
         projeto.candidatos.exclude(id=application_id).update(
             is_selected=False, status=UserProjeto.StatusJob.REJEITADO
         )
 
-        # Selecionando o candidato atual
         application.is_selected = True
         application.status = UserProjeto.StatusJob.SELECIONADO
         application.save()
 
-        # Atualizando o projeto com o candidato selecionado
-        projeto.selected_user = application.user  # Aqui estamos acessando o campo `user` do candidato
+        projeto.selected_user = application.freelancer_user  
+        projeto.isClosed = True
         projeto.save()
 
-        # Fechando o projeto se o número máximo de candidatos foi atingido
         if projeto.max_candidates == projeto.candidatos.filter(is_selected=True).count():
             projeto.isClosed = True
             projeto.save()
+
+        subject = 'Candidato Selecionado'
+        from_email = 'freelleifc@gmail.com'
+        to_email = [application.freelancer_user.email]
+        html_content = render_to_string('../templates/html-email/vacancy_selected.html', {'user': application.freelancer_user})
+        send_mail(
+            subject,
+            '',
+            from_email,
+            to_email,
+            fail_silently=False,
+            html_message=html_content,
+        )
 
         return Response(
             {"message": "Candidato selecionado com sucesso e outros candidatos removidos."},
             status=status.HTTP_200_OK
         )
+
 
     @action(detail=False, methods=['get'], url_path='current-projetos', url_name='current_projetos', permission_classes=[IsAuthenticated])
     def current_projetos(self, request):

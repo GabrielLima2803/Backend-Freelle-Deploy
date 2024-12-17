@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidato Selecionado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F0F5F9; /* Cor de fundo suave */
+            color: #333333; /* Texto escuro */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .alert-box {
+            background-color: #00546B; /* Tom azul principal */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            color: #FFFFFF; /* Texto branco */
+        }
+        .alert-box img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        .alert-box h1 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .alert-box p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .alert-box .button {
+            padding: 12px 25px;
+            background-color: #013b4b;
+            color: #000000; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .alert-box .button:hover {
+            background-color: #033746; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="alert-box">
+            <img src="https://i.ibb.co/Qk43Z1V/icon-freelle-empresa.png" alt="Logo NewJob">
+            <h1>Parabéns, {{ user.username }}! Você foi Selecionado</h1>
+            <p>O candidato {{ user.username }} foi selecionado para a vaga com sucesso.</p>
+            <p>Agora, ele será removido da lista de candidatos e sua vaga será fechada.</p>
+            <button class="button" onclick="window.location.href='https://www.google.com.br/?hl=pt-BR'">
+                Voltar para a página inicial
+            </button>
+        </div>
+    </div>
+</body>
+</html>
