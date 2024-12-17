@@ -22,7 +22,7 @@ class UserSerializer(ModelSerializer):
     class Meta:
         model = User
         fields = "__all__"
-        depth = 1
+        depth = 2
 
 
 

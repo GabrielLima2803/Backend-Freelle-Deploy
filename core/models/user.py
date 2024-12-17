@@ -10,6 +10,7 @@ from .favorito import Favorito
 from .formacao import Formacao
 from .nacionalidade import Nacionalidade
 import uuid
+from .portifolio import Portifolio
 from django.core.validators import RegexValidator
 
 
@@ -68,6 +69,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     passage_id = models.CharField(max_length=255, unique=True, default=generate_unique_passage_id)
     email = models.EmailField(max_length=255, unique=True)
     is_active = models.BooleanField(default=True)
+    portifolio = models.ManyToManyField(Portifolio, blank=True)
     # expert
     total_pedidos = models.FloatField(default=0)
     area_atuacao =  models.CharField(max_length=255, null=True, blank=True)
@@ -101,6 +103,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.username or self.email
+
 
     def atualizar_rating(self, nova_avaliacao):
         """Atualiza a média de avaliações."""

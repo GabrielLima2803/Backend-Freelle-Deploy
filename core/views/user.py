@@ -3,9 +3,11 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from django.db import models
 from django.shortcuts import get_object_or_404
+from rest_framework.views import APIView
 
-from core.models import User, Projeto, UserProjeto
+from core.models import User, Projeto, UserProjeto, Avaliacao
 from core.serializers import UserSerializer, UserDetailSerializer, UserListSerializer, UserUpdateSerializer
 
 class UserViewSet(ModelViewSet):
@@ -83,5 +85,26 @@ class UserViewSet(ModelViewSet):
         if self.action == 'list':
             return UserListSerializer
         elif self.action == 'retrieve':
-            return UserDetailSerializer
+            return UserSerializer
         return UserSerializer
+
+
+class UserRatingsView(APIView):
+    def get(self, request, user_id):
+        try:
+            user = User.objects.get(id=user_id)
+            # Calcule a média de avaliações
+            total_avaliacoes = Avaliacao.objects.filter(avaliado=user).count()
+            if total_avaliacoes > 0:
+                total_rating = Avaliacao.objects.filter(avaliado=user).aggregate(models.Avg('nota'))['nota__avg']
+            else:
+                total_rating = 0
+            user.rating = total_rating
+            user.total_avaliacoes = total_avaliacoes
+            user.save()
+
+            serializer = UserSerializer(user)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        except User.DoesNotExist:
+            return Response({'error': 'Usuário não encontrado'}, status=status.HTTP_404_NOT_FOUND)

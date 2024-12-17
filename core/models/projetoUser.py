@@ -9,12 +9,12 @@ class UserProjeto(models.Model):
         REJEITADO = 2, "Rejeitado"
         SELECIONADO = 3, "Selecionado"
         NÃO_SELECIONADO = 4, "Não selecionado"
-    empresa_user = models.ForeignKey(User, related_name="empresa_projects", on_delete=models.PROTECT, blank=True, null=True)
-    freelancer_user = models.ForeignKey(User, related_name="freelancer_projects", on_delete=models.PROTECT, blank=True, null=True)
+    empresa_user = models.ForeignKey(User, related_name="empresa_projects", on_delete=models.CASCADE, blank=True, null=True)
+    freelancer_user = models.ForeignKey(User, related_name="freelancer_projects", on_delete=models.CASCADE, blank=True, null=True)
     application_date = models.DateTimeField(default=timezone.now)
     is_selected = models.BooleanField(default=False)
     status = models.IntegerField(choices=StatusJob.choices, default=StatusJob.PENDENTE)
-    projeto = models.ForeignKey(Projeto, related_name="candidatos", on_delete=models.PROTECT)
+    projeto = models.ForeignKey(Projeto, related_name="candidatos", on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "User Projeto"

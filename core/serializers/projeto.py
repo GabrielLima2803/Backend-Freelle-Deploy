@@ -8,16 +8,13 @@ from core.serializers.projetoUser import UserProjetoSerializer
 
 class ProjetoSerializer(ModelSerializer):
     image_project_attachment_key = SlugRelatedField(
-        source="image_project",
+        source="foto",
         queryset=Image.objects.all(),
-        slug_field="attachment_key",
+        slug_field="attachment_key", 
         required=False,
         write_only=True,
     )
-    image_project = ImageSerializer(
-        required=False,
-        read_only=True
-    )
+    foto = ImageSerializer(required=False, read_only=True) 
     preco = serializers.DecimalField(
         max_digits=10, decimal_places=2, default=0, required=False, allow_null=True
     )

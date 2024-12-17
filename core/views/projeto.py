@@ -5,8 +5,10 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend, FilterSet, filters as django_filters
+from rest_framework.exceptions import ValidationError
 
-from core.models import Projeto, UserProjeto
+
+from core.models import Projeto, UserProjeto, User, Categoria
 from core.serializers import ProjetoSerializer, UserProjetoSerializer
 
 class ProjetoFilterSet(FilterSet):
@@ -19,7 +21,7 @@ class ProjetoFilterSet(FilterSet):
 class ProjetoViewSet(ModelViewSet):
     queryset = Projeto.objects.all().order_by("id")
     serializer_class = ProjetoSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    # permission_classes = [IsAuthenticatedOrReadOnly]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_class = ProjetoFilterSet
     search_fields = ['titulo', 'descricao']  
@@ -35,9 +37,72 @@ class ProjetoViewSet(ModelViewSet):
             projeto.check_expiration()
             projeto.check_max_candidates()
         return queryset
+    
 
     def get_serializer_class(self):
         return self.serializer_class
+    # def destroy(self, request, *args, **kwargs):
+    #     """
+    #     Exclui um projeto, se possível.
+    #     """
+    #     projeto = self.get_object()  # Pega o projeto com base no ID da URL
+    #     try:
+    #         projeto.delete()  # Exclui o projeto
+    #         return Response(
+    #             {"message": "Projeto excluído com sucesso."},
+    #             status=status.HTTP_204_NO_CONTENT
+    #         )
+    #     except Exception as e:
+    #         return Response(
+    #             {"error": f"Ocorreu um erro ao tentar excluir o projeto: {str(e)}"},
+    #             status=status.HTTP_400_BAD_REQUEST
+    #         )
+    def create(self, request, *args, **kwargs):
+        """
+        Cria um projeto com os dados do formulário e um campo de imagem (arquivo).
+        Também cria automaticamente um UserProjeto associado ao usuário autenticado.
+        """
+        image_file = request.FILES.get("image_project")
+        categoria_id = request.data.get("categoria")
+
+        if not image_file:
+            return Response(
+                {"error": "A imagem (foto) é obrigatória."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        try:
+            from uploader.models import Image
+            imagem = Image.objects.create(file=image_file)
+
+            categoria = Categoria.objects.get(pk=categoria_id)
+
+            projeto = Projeto.objects.create(
+                foto=imagem,
+                titulo=request.data.get("titulo"),
+                descricao=request.data.get("descricao"),
+                prazo_entrega=request.data.get("prazo_entrega") or None,
+                max_candidates=request.data.get("max_candidates") or None,
+                orcamento=request.data.get("orcamento") or None
+            )
+            projeto.categoria.set([categoria])
+
+            UserProjeto.objects.create(
+                empresa_user=request.user,
+                projeto=projeto,
+                status=UserProjeto.StatusJob.PENDENTE
+            )
+
+            return Response(
+                {"id": projeto.id, "message": "Projeto criado com sucesso!"},
+                status=status.HTTP_201_CREATED
+            )
+
+        except Exception as e:
+            return Response(
+                {"error": str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
     @action(detail=True, methods=["post"])
     def select_candidate(self, request, pk=None):
@@ -45,12 +110,6 @@ class ProjetoViewSet(ModelViewSet):
         Permite que a empresa selecione um candidato para uma vaga e remova outros candidatos da vaga.
         """
         projeto = get_object_or_404(Projeto, pk=pk)  # Busca o projeto pelo ID
-        # Caso queira verificar permissões, pode adicionar uma lógica de permissão aqui
-        # if projeto.empresa_user != request.user:
-        #     return Response(
-        #         {"error": "Você não tem permissão para selecionar candidatos para este projeto."},
-        #         status=status.HTTP_403_FORBIDDEN
-        #     )
 
         application_id = request.data.get("application_id")
         if not application_id:
@@ -67,24 +126,29 @@ class ProjetoViewSet(ModelViewSet):
                 status=status.HTTP_404_NOT_FOUND
             )
 
+        # Verificando se o candidato já foi selecionado
         if application.is_selected:
             return Response(
                 {"error": "Este candidato já foi selecionado."},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        projeto.userprojeto_set.exclude(id=application_id).update(
+        # Atualizando os outros candidatos para não selecionados
+        projeto.candidatos.exclude(id=application_id).update(
             is_selected=False, status=UserProjeto.StatusJob.REJEITADO
         )
 
+        # Selecionando o candidato atual
         application.is_selected = True
         application.status = UserProjeto.StatusJob.SELECIONADO
         application.save()
 
-        projeto.selected_user = application.user
+        # Atualizando o projeto com o candidato selecionado
+        projeto.selected_user = application.user  # Aqui estamos acessando o campo `user` do candidato
         projeto.save()
 
-        if projeto.max_candidates == projeto.userprojeto_set.filter(is_selected=True).count():
+        # Fechando o projeto se o número máximo de candidatos foi atingido
+        if projeto.max_candidates == projeto.candidatos.filter(is_selected=True).count():
             projeto.isClosed = True
             projeto.save()
 
@@ -126,6 +190,7 @@ class ProjetoViewSet(ModelViewSet):
         for projeto in projetos_empresa:
             candidatos_projeto = projeto.candidatos.filter(projeto=projeto)
             candidatos.append({
+                'id_projeto': projeto.id,
                 'projeto': projeto.titulo,
                 'candidatos': UserProjetoSerializer(candidatos_projeto, many=True).data
             })

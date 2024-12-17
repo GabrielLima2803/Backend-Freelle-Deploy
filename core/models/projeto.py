@@ -13,7 +13,7 @@ class Projeto(models.Model):
 
     titulo = models.CharField(max_length=80)
     descricao = models.TextField()
-    image_project = models.ForeignKey(Image, related_name="+", on_delete=models.SET_NULL, null=True, blank=True, default=None)
+    foto = models.ForeignKey(Image, on_delete=models.SET_NULL, null=True, blank=True)
     status = models.IntegerField(choices=StatusChoices.choices, default=StatusChoices.PROGESS)
     preco = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     prazo_entrega = models.DateField()
