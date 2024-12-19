@@ -1,6 +1,3 @@
-MODE = 'DEVELOPMENT' 
-MEDIA_URL = 'http://127.0.0.1:8000/media/' 
-DATABASES = {'default': {'NAME': 'db.sqlite3', 'USER': '', 'PASSWORD': '', 'HOST': '', 'PORT': '', 'CONN_MAX_AGE': 600, 'CONN_HEALTH_CHECKS': True, 'DISABLE_SERVER_SIDE_CURSORS': False, 'ENGINE': 'django.db.backends.sqlite3'}}
 [
 {
   "model": "admin.logentry",
